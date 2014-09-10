@@ -311,6 +311,9 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.position', 'ui.bootstrap
 
       originalScope.$on('$destroy', function(){
         $document.unbind('click', dismissClickHandler);
+        if ( appendToBody ) {
+          $popup.remove();
+        }
       });
 
       var $popup = $compile(popUpEl)(scope);
